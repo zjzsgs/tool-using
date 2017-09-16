@@ -1,0 +1,27 @@
+快捷键
+alt+enter 弹出提示
+psvm main()函数
+sout syso
+
+使用报错：
+IntelliJ IDEA 源值1.5已过时，将在未来所有版本中删除
+  1，修改maven的settings.xml
+  <profile>
+    <id>jdk-1.8</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+      <jdk>1.8</jdk>
+    </activation>
+    <properties>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
+  </profile>
+  2，在pom.xml中添加
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  3，修改项目Modules(ctrl+alt+shift+s)的Language Level为8
+  4，修改java compiler
