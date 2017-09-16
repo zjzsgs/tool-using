@@ -1,0 +1,12 @@
+myeclipse10自带jdk1.6
+快捷键：
+  复制一行代码到下一行 ctrl+alt+down 与win7翻转屏幕重复
+  修改快捷键 copy lines  ctrl+shift+c
+
+myeclipse激活
+MyEclipse 各版本下载：
+http://www.softown.cn/soft/myeclipse
+MyEclipse 各版本破解教程：
+http://www.jb51.net/softs/150887.html
+先save 再replace 不rebuild
+查看是否激活 【MyEclipse】->【Subscription Information】

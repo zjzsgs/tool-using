@@ -1,0 +1,29 @@
+Navicat key：NAVH-WK6A-DMVK-DKW3
+执行选中sql语句 右键/ctrl+shift+R
+
+mysql5.7
+我用的是解压版，根目录下没有.ini和data文件夹，在Path中添加bin目录(可以不用)。
+data目录存储数据库的，最好是在根目录下，没有则mysqld --initialize。
+复制my.ini，在[mysqld]中添加
+basedir = C:\Program Files\mysql-5.6.37-winx64
+datadir = C:\Program Files\mysql-5.6.37-winx64\data
+port = 3306
+character_set_server = utf8
+[mysql]
+default-character-set = utf8
+[mysql.server]
+default-character-set = utf8
+[mysqld_safe]
+default-character-set = utf8
+[client]
+port = 3306
+default-character-set = utf8
+安装服务 mysqld -install mysql7(这个是服务名)，移除服务 mysqld --remove mysql7或者sc delete mysql7
+启动服务 net start mysql7
+
+安装第二个mysql5.6
+同上 修改端口号 安装服务名 启动服务名 登录mysql -u root -P 3307 
+
+在cmd中运行sql
+cd到目录下 source filename.sql
+

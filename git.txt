@@ -1,0 +1,16 @@
+git安装 默认next git --version查看是否成功
+姓名和email只用于日志识别 推送到在线仓库需要又操作权限的账号登录
+  git config --global user.name "zjz"
+  git config --global user.email "zjzsgs@hotmail.com"
+要进行git推送 必须配置push.default
+  git config --global push.default simple
+可以根据项目路径单独设置姓名和email 去掉--global
+
+warning lf will be replaced by crlf
+  git init
+  git add . 出现提示：
+  windows中的换行符为 CRLF， 而在linux下的换行符为：LF
+  git init，文件中的换行符为LF， 当执行git add .时，系统提示：LF 将被转换成 CRLF
+解决办法：
+  rm -rf .git //移除.git文件
+  git config --gobal core.autocrlf false  //禁用自动转换

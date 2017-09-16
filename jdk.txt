@@ -1,0 +1,6 @@
+jdk安装弹出jre的安装，其实是可以不用安装的，jdk目录下已有一个jre目录。
+jdk8不需要设置环境变量，cmd中java -version也可以查看。但Tomcat启动会闪退。
+还是配一下：
+  JAVA_HOME C:\Program Files\Java\jdk1.8.0_65
+	CLASSPATH .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
+	Path %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;

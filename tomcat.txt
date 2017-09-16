@@ -1,0 +1,21 @@
+解压 配置环境变量
+CATALINA_HOME tomcat根目录
+启动tomcat必须要配置好java环境(否则会一闪而过)
+  启动start.bat/jar一闪而过，在cmd中cd到bin，start.bat/shutdown.bat 启动/关闭服务，
+  可以查看启动报错原因，可知是缺少jre。
+
+安装7、8、9版本(瞎折腾)http://blog.csdn.net/u013070853/article/details/53469969
+配置CATALINA_HOME7、CATALINA_HOME8、CATALINA_HOME9
+修改启动端口和关闭端口 \conf\server.xml
+批量替换8080：7777、8080、8888
+  8009：8008、8009、8010
+  8005：8004、8005、8006
+修改\bin\startup.bat
+  批量替换CATALINA_HOME:CATALINA_HOME7、CATALINA_HOME8、CATALINA_HOME9
+修改\bin\catalina.bat
+  批量替换CATALINA_HOME:CATALINA_HOME7、CATALINA_HOME8、CATALINA_HOME9
+完成
+  localhost:7777/8080/8888
+
+
+

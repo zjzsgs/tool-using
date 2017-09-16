@@ -1,0 +1,18 @@
+配置maven环境变量 
+  M2_HOME C:\Program Files\apache-maven-3.5.0;
+	Path ;%M2_HOME%\bin;
+	cmd mvn --version 验证是否成功
+
+在settings.xml中
+  设置mvn本地仓库
+  <localRepository>D:\DataSource\Repository</localRepository>
+	设置阿里云镜像
+  <mirror>
+      <id>alimaven</id>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <mirrorOf>central</mirrorOf>        
+  </mirror>
+  
+若是用于当前用户 在.m2/settings.xml中配置
+若是用于全局用户 在maven安装目录下配置
