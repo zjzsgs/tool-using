@@ -14,3 +14,7 @@ warning lf will be replaced by crlf
 解决办法：
   rm -rf .git //移除.git文件
   git config --gobal core.autocrlf false  //禁用自动转换
+
+2017-09-17
+git提交文件夹 git add foldName
+git提交深层文件 cd到目录 add commit push
