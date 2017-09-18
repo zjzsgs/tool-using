@@ -1,20 +1,35 @@
-git°²×° Ä¬ÈÏnext git --version²é¿´ÊÇ·ñ³É¹¦
-ĞÕÃûºÍemailÖ»ÓÃÓÚÈÕÖ¾Ê¶±ğ ÍÆËÍµ½ÔÚÏß²Ö¿âĞèÒªÓÖ²Ù×÷È¨ÏŞµÄÕËºÅµÇÂ¼
+gitå®‰è£… é»˜è®¤next git --versionæŸ¥çœ‹æ˜¯å¦æˆåŠŸ
+å§“åå’Œemailåªç”¨äºæ—¥å¿—è¯†åˆ« æ¨é€åˆ°åœ¨çº¿ä»“åº“éœ€è¦åˆæ“ä½œæƒé™çš„è´¦å·ç™»å½•
   git config --global user.name "zjz"
   git config --global user.email "zjzsgs@hotmail.com"
-Òª½øĞĞgitÍÆËÍ ±ØĞëÅäÖÃpush.default
+è¦è¿›è¡Œgitæ¨é€ å¿…é¡»é…ç½®push.default
   git config --global push.default simple
-¿ÉÒÔ¸ù¾İÏîÄ¿Â·¾¶µ¥¶ÀÉèÖÃĞÕÃûºÍemail È¥µô--global
+å¯ä»¥æ ¹æ®é¡¹ç›®è·¯å¾„å•ç‹¬è®¾ç½®å§“åå’Œemail å»æ‰--global
 
 warning lf will be replaced by crlf
   git init
-  git add . ³öÏÖÌáÊ¾£º
-  windowsÖĞµÄ»»ĞĞ·ûÎª CRLF£¬ ¶øÔÚlinuxÏÂµÄ»»ĞĞ·ûÎª£ºLF
-  git init£¬ÎÄ¼şÖĞµÄ»»ĞĞ·ûÎªLF£¬ µ±Ö´ĞĞgit add .Ê±£¬ÏµÍ³ÌáÊ¾£ºLF ½«±»×ª»»³É CRLF
-½â¾ö°ì·¨£º
-  rm -rf .git //ÒÆ³ı.gitÎÄ¼ş
-  git config --gobal core.autocrlf false  //½ûÓÃ×Ô¶¯×ª»»
+  git add . å‡ºç°æç¤ºï¼š
+  windowsä¸­çš„æ¢è¡Œç¬¦ä¸º CRLFï¼Œ è€Œåœ¨linuxä¸‹çš„æ¢è¡Œç¬¦ä¸ºï¼šLF
+  git initï¼Œæ–‡ä»¶ä¸­çš„æ¢è¡Œç¬¦ä¸ºLFï¼Œ å½“æ‰§è¡Œgit add .æ—¶ï¼Œç³»ç»Ÿæç¤ºï¼šLF å°†è¢«è½¬æ¢æˆ CRLF
+è§£å†³åŠæ³•ï¼š
+  rm -rf .git //ç§»é™¤.gitæ–‡ä»¶
+  git config --gobal core.autocrlf false  //ç¦ç”¨è‡ªåŠ¨è½¬æ¢
 
 2017-09-17
-gitÌá½»ÎÄ¼ş¼Ğ git add foldName
-gitÌá½»Éî²ãÎÄ¼ş cdµ½Ä¿Â¼ add commit push
+gitæäº¤æ–‡ä»¶å¤¹ git add foldName
+gitæäº¤æ·±å±‚æ–‡ä»¶ cdåˆ°ç›®å½• add commit push
+git add . æˆ–git add --all
+gitæ·»åŠ å¤šä¸ªæ–‡ä»¶(ä¸æ˜¯å…¨éƒ¨) git add fileName/foldName fileName2/foldName2
+
+2017-09-18
+git diff ä¸­æ–‡quoteï¼Œå‘Šè¯‰ git ä¸å¯¹ 0x80 ä»¥ä¸Šçš„å­—ç¬¦è¿›è¡Œè½¬ä¹‰ ï¼Œå‡ºç°<><><>çš„ä¹±ç æ— æ³•ç”¨è¿™ä¸ªæ–¹æ³•è§£å†³~
+git config --global core.filemode false
+git config core.filemode false
+git config core.quotepath false
+åŸå› æ˜¯ï¼štxtæ˜¯gb2312ç¼–ç ï¼Œåº”æ”¹æˆutf-8
+è§£å†³æ–¹æ¡ˆï¼š 
+echo $LANG; 
+è¾“å‡ºç»“æœä¸ºç©º 
+æ‰§è¡Œexport LANG=â€zh_CN.UTF-8â€å‘½ä»¤ï¼Œé—®é¢˜è§£å†³ã€‚
+wqé€€å‡º:
+
