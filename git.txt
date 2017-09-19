@@ -33,3 +33,6 @@ echo $LANG;
 执行export LANG=”zh_CN.UTF-8”命令，问题解决。
 wq退出:
 
+2017-09-20
+touch README.md 生成.md文件
+echo "content">readme.md 不区分大小写
