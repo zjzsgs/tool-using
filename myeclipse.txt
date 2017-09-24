@@ -10,3 +10,15 @@ MyEclipse 各版本破解教程：
 http://www.jb51.net/softs/150887.html
 先save 再replace 不rebuild
 查看是否激活 【MyEclipse】->【Subscription Information】
+
+2017-09-23
+手动代码提示 alt+/
+自动提示(Java代码)
+	Window—Preferences,左侧选择Java—Editor—Content Assist，右侧.改成.abc。
+	File—Export——General——Preferences，选择到处位置。
+	打开.epf文件，ctrl+f搜索“.abc”替换成”.abcdefghijklmnopqrstuvwxyz(,“，保存关闭
+	导入.epf即可
+快捷键：
+	F11 运行上次程序
+	Ctrl + F11 调试上次程序 
+	Ctrl + N 新建一个类/包

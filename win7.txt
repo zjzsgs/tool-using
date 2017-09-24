@@ -7,3 +7,15 @@ calc——直接调用计算器
 utf-8签名(Signature)
 解析器根据签名就能判断用utf-8编码解析。无签名时根据内容的编码来判别。
 有签名就是带BOM信息，Byte Order Mark(字节流标记)，utf-8的BOM是0xEFBBBF(在文档开头)。
+
+2017-09-23
+Outlook点击已发送邮件就崩溃
+	按照取消加载项方法依然不行
+	修改注册表重命名以下4项(比如将outlook重命名为outlookold)依然不行
+	HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\outlook
+	HKEY_CURRENT_USER\Software\Microsoft\Office\ outlook\Addins
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\14.0\outlook
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\outlook\Addins
+删除右键菜单多余项(发送到Foxmail)
+	一、注册表搜索MenuExt
+	二、360系统工具右键管理

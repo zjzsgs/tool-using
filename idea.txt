@@ -25,3 +25,16 @@ IntelliJ IDEA 源值1.5已过时，将在未来所有版本中删除
   </properties>
   3，修改项目Modules(ctrl+alt+shift+s)的Language Level为8
   4，修改java compiler
+
+IDEA显示0%classes,0% lines covered 怎么取消
+  Ctrl+Alt+F6 取消勾选
+  若快捷键冲突(我的就与bing词典和intel图形属性冲突)
+  在菜单栏Analyze——Show Coverage Data
+
+2017-09-24
+idea分为ultimate和community，后者不能开发JavaWeb
+激活 License server http://idea.iteblog.com/key.php
+先默认设置：
+	设置maven，java compiler，设置jdk
+idea的project就是eclipse的工作空间 module就是eclipse的项目
+idea代码格式化 ctrl+alt+l
