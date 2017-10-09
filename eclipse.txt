@@ -1,0 +1,10 @@
+﻿eclipse优化
+	enc设置编码
+代码格式化 ctrl+shift+F
+eclipse导入外部jar
+	Java Build Path——Add External JARs
+	Java Build Path——Add Library——User Library
+	导入lib，全选右键Build Path——Add to Build Path
+
+2017-10-02
+	xml——xml files——editor——content assist——<=:.abcdefghijklmnopqrstuvwxyz(,

@@ -1,0 +1,7 @@
+MySQL复制
+	异步复制
+	基于BinLog日志
+	三种日志格式：
+		Statement：BinLog中存储SQL语句，存储日志量是最小的
+		Row：存储event数据，存储日志量大，不能很直接额进行读取
+		Mixed：介于Row和Statement之间，对应不确定的操作使用Row记录，如果每天的数据操作量很大，产生的日志比较多，可以考虑使用mixed格式。

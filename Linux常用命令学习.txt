@@ -1,0 +1,393 @@
+Linux常用命令学习
+[root@jerry ~]#
+管理员(当前登录用户) 主机名 当前所在目录(家目录)pwd显示当前所在位置 
+# 超级用户的提示符
+$ 普通用户的提示符
+简化选项 -a等于-all
+
+ls查看当前目录  可加参数表示目录
+	-a 显示所有文件 包括隐藏文件
+	.开头的文件是隐藏文件 告诉是系统文件
+	-l 显示详细信息
+		不包括隐藏文件，-rw-r--r--
+		ls -l /dev/
+权限默认是10位-rw-r--r--
+	-文件类型	d目录	l软链接文件(快捷方式)
+	还有块设备文件、字符设备文件、套接字文件和管道文件
+	rw- u所有者	r-- g所属组 r-- o其他人
+	r读 w写 x执行
+	.代表ACL权限
+	数字 表示引用计数 
+	-d 查看目录属性
+	ls -ld /etc/
+	-h 人性化显示文件大小
+	ls -lh
+	-i 显示inode
+	查看id
+
+目录文件处理命令
+建立目录 mkdir 目录名  不存在就创建
+mkdir a/b 出错 a目录不存在
+mkdir -p a/b 会先创建a目录 用户创建一串目录
+cd 目录change directory
+cd ~	进入当前用户的家目录 ==cd /root/
+cd		同上
+cd - 	进入上次目录
+cd ..	进入上一级目录 /root/上一级是/ 根目录
+cd .	进入当前目录 本来就是当前目录
+
+table键 按两下  目录补全和命令补全
+pwd print working directory
+删除空目录 rmdir 目录名	remove empty directories 目录必须为空才能删 否则报错
+上面的删除很麻烦 可以用rm
+rm -rf 目录/文件 可以删除所有下面的文件  f强制删除 不进入回收站
+rm -rf /	rm -rf /temp/ 删除temp这个文件夹  rm -rf /temp/* 删除temp目录下文件
+-r 删除目录 	-f 强制
+
+复制命令 cp  copy
+-r 复制目录
+-p 带文件属性复制
+-d 若源文件为链接文件 则复制链接属性
+-a 相当于 -pdr
+
+剪切/改名 mv move
+mv 原文件/目录 目标目录
+同一目录 改名
+不同目录 剪切
+
+ls -l == ll 别名
+
+cd /
+ls
+ls usr/
+根目录下的bin和sbin，usr下的bin和sbin，都是用来保存系统命令的
+boot 启动目录
+etc 配置文件
+home 普通文件
+root 超级文件
+lib 函数库
+dev 硬件文件
+media mnt misc 挂载
+proc和sys目录不能直接操作，这两个目录保存的是内存的挂载点
+tmp 临时目录
+/usr 系统软件资源目录
+/usr/bin 普通用户
+/usr/sbin 超级目录
+可以在root或home以及tmp目录下方内容
+/var 系统相关文档的内容
+
+ln -s 原文件 目标文件 link  生成链接文件 -s创建软链接
+vi 目录名文件名  打开文件来编辑
+硬链接
+	相同的i节点和存储block块，可以看做同一个文件
+	可通过i节点识别
+	不能跨分区
+	不能针对目录使用
+软链接
+	类似win中快捷方式
+	拥有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。
+	lrwxrwxrwx l代表软链接  软连接文件权限都是rwxrwxrwx
+	修改任意文件，另一个都改变
+	删除原文件，软链接不能使用
+软链接一定要写绝对路径
+touch 新建一个文件
+echo 给文件添加内容
+cat 显示文件内容
+vi 打开并编辑内容
+退出vi
+	:进入最后一行
+	w filename 指定保存名称
+	wq 保存并退出
+	q! 不存盘强制退出
+
+文件搜索命令
+	locate	搜索速度较快 在后台数据库中按文件名搜索
+		/var/lib/mlocate locate命令所搜索的后台数据库 一天更新一次
+		updatedb 强制更新数据库
+		只能搜索文件名 耗费资源少 比较快 不会搜索/tmp/ 在/etc/updatedb.config中配置
+	whereis which
+		whereis 只能搜索系统文件 whereis ls
+		wahtis / ls 	whoami查看当前用户名
+		-b 只查看命令可执行文件
+		-m 只查看帮助文件位置
+		which 可以显示命令的位置 以及别名和颜色显示
+都不能找到cd命令 shell自带的命令
+/bin/ls
+echo $PATH 查看环境变量 就可以不用定位到目录再执行命令
+	find 查找每一个文件名
+	find 搜索范围 搜索条件
+	find / -name install.log
+	避免大范围搜索，会很慢很耗费系统资源
+	find是搜索符合条件的文件名，完全匹配的。
+	模糊查询，可使用通配符。
+	* 任意内容
+	？ 任意一个字符
+	ab[cd] 任意一个中括号中的字符
+	find /root -iname install.log 	-iname 不区分大小写 必须有参数
+	find /root -user root 按所有者搜索 列出文件夹中所有者为root的文件
+	find /root -nouser 查找没有所有者的文件
+内核产生的文件没有所有者
+外来文件没有所有者
+其他没有所有者的是垃圾文件
+	find /var/log/ -mtime +10 #查找10天前修改的日志文件
+	-10 10天内修改的文件
+	10 10天当天修改的文件
+	+10 10天前修改的文件
+	atime 文件访问时间
+	ctime 改变文件属性
+	mtime 修改文件内容
+	find . -size -25k
+	.表示当前目录 k小写M大写 -<25+>25  25表示等于25KB的文件 不带单位表示25个扇区
+	find /root -size +25M
+	find . -inum i节点
+	find /etc -size +20k -a -size -50k #查找在/etc/目录下大于20KB且小于50KB的文件
+	-a and	-o or
+	find /etc -size +20k -a -size -50k -exec ls -lh {}  \; #查找etc目录下大于20且小于50的文件并显示详细信息
+	-exec/-ok 命令 {} \; #对搜索结果执行操作
+	grep [选项] 字符串 文件名 #在文件当中匹配符合条件的字符串  列出所在行
+	-i 忽略大小写	-v 排除指定字符串
+find和grep的区别
+	find：在系统当中搜索符合条件的文件名，如果需要匹配，则使用通配符匹配，通配符是完全匹配。
+	grep：在文件当中搜索符合条件的字符串，如果需要匹配，则使用正则表达式进行匹配，正则表达式是包含匹配。
+
+帮助命令
+	man man  退出编辑框q  获取指定命令的帮助
+	man ls 查看ls的帮助
+	man的级别
+		1：查看命令的帮助
+		2：查看可被内核调用的函数的帮助
+		3：查看函数和函数库的帮助
+		4：查看特殊文件的帮助（主要是/dev目录下的文件）
+		5：查看配置文件的帮助
+		6：查看游戏的帮助
+		7：查看其它杂项的帮助
+		8：查看系统管理员可用命令的帮助
+		9：查看和内核相关文件的帮助	
+	man -f 命令 == whatis 命令 查看命令拥有哪个级别的帮助
+	man -k 命令 == apropos 命令	查看和命令相关的所有帮助
+	apropos passwd
+	其它帮助命令 
+	命令 --help	ls --help
+	help shell内部命令  获取shell内部命令的帮助
+	whereis ls/cd 确定是否是shell内部命令 ls不是
+	help cd 获取内部命令帮助 不能用man cd
+	详细命令帮助
+	info 命令
+		-回车	进入子帮助页面(带*号标记)
+		-u 	进入上层页面
+		-n 	进入下一个帮助小节
+		-p 	进入上一个帮助小节
+		-q  退出
+压缩与解压缩命令
+	常见压缩格式 .zip .gz .bz2 .tar.gz .tar.bz2
+	zip 压缩文件名 源文件  压缩文件名随便都要好记
+	zip -r 压缩文件名 源目录
+	unzip 压缩文件名  解压缩.zip文件
+	rm -rf *.zip 删除所有zip
+	gzip 源文件 #压缩为.gz格式的压缩文件，源文件会消失
+	gzip -c 源文件 > 压缩文件 #压缩为.gz格式，源文件保留
+	例如：gzip -c jp > jp.gz
+	gzip -r 目录 #压缩目录下所有的子文件，*但不能压缩目录
+	gzip -d 压缩文件 #解压缩 gunzip 压缩文件
+	bzip2 源文件 #压缩为.bz2格式，不保留源文件
+	bzip2 -k 源文件 #压缩之后保留源文件
+	*bzip2命令不能压缩目录
+	bzip2 -d 压缩文件 #解压缩，-k保留压缩文件
+	bunzip2 压缩文件 #解压缩，-k保留压缩文件
+	.gz和.bz2两种不能压缩目录因此有.tar.gz和.tar.bz2两种格式，先将目录打包成tar然后在压缩。
+	打包命令：tar -cvf 打包文件名 源文件
+	-c 打包 	-v 显示过程 	-f 指定打包后的文件名
+	如：tar -cvf jp.tar jp
+	解打包命令：tar -xvf 打包文件名
+	-x 解打包   覆盖
+	如：tar -xvf jp.tar
+	一次性打包.tar.gz/.tar.bz2
+	tar -zcvf 压缩包名.tar.gz 源文件
+	-z：压缩为.tar.gz格式
+	tar -zxvf 压缩包名.tar.gz
+	tar -jcvf 压缩包名.tar.bz2 源文件 #压缩
+	tar -jxvf 压缩包名.tar.bz2 #解压缩
+
+关机和重启
+	关机 shutdown [选项] 时间
+	-c 取消前一个关机命令
+	-h 关机
+	-r 重启
+	date 查看虚拟机系统时间
+	shutdown -r 5:30 自定义重启时间 终端会被占用 Ctrl + C 退出
+	shutdown -r 5:30 & 不会占用终端 可以继续使用系统到关机时间
+	如果要取消自定义重启时间 shutdown -c
+	服务器最好是远程重启，不要远程关机。xshell需要重新连接。
+	halt	poweroff	init 0	也是关机命令
+	reboot init6 重启命令
+	系统运行级别
+		0关机	1单用户	2不完全多用户，不含nfs服务	3完全多用户	4未分配	5图形界面	6重启
+	runlevel 显示系统运行级别 N 3 从null到3
+	cat /etc/inittab 查看开机进入系统级别配置 id:3:initdefault:
+	logout 退出登录 系统不会退出 远程终端退出
+挂载命令——分配盘符
+	mount #查看系统中已经挂载的设备
+	mount -a #依据配置文件/etc/fstab的内容，自动挂载
+	挂载命令格式 mount -t文件系统 -o特殊选项 设备文件名 挂载点
+	-t文件系统：加入文件系统类型来指定挂载的类型，可以ext3、ext4、iso9660等文件系统
+	-o特殊选项：可以指定挂载的额外选项
+	vi hello.sh
+	编辑 echo "hello world!"
+	cat hello.sh 查看内容
+	chmod 755 hello.sh 设定权限
+	ll 查看详细信息
+	./hello.sh==/home/hello.sh 指定脚本
+	打印出 hello world!
+	mount -o remount,noexec /home #重新挂载分区/ home，并使用noexec权限,必须在~下/root
+	./hello.sh #再次执行，权限不够
+	mount -o remount,exec /home 改回权限，可以在/home下改
+	挂载光盘
+	mkdir /mnt/cdrom/ #建立挂载点
+	mount -t iso9660 /dev/cdrom /mnt/cdrom/ #挂载光盘 省写mount /dev/sr0 /mnt/cdrom/
+	会报错：
+	ll /dev/cdrom 可以看到/dev/cdrom -> sr0 前面是软链接
+	卸载光盘 cd 到外部 umount /mnt/cdrom/ 再cd /mnt/cdrom/ ls为空
+	卸载命令 umount 设备文件名或挂载点
+	挂载u盘 fdisk -l #查看u盘设备文件名
+	mount -t vfat /dev/sdb1 /mnt/usb/
+	*Linux默认是不支持NTFS文件系统
+用户登录查看和用户交互命令
+	w 用户名（可以不用）
+	命令输出
+		user：登录的用户名
+		tty：登录终端
+		from：从哪个ip地址登录
+		login@：登录时间
+		idle：用户闲置时间
+		jcpu：指的是和该终端连接的所有进程占用的时间。这个时间里并不包括过去的后台作业时间，但却包含当前正在运行的后台作业所占用的时间。
+		pcpu：是指当前的进程所占用的时间。
+		what：当前正在运行的命令
+	who 用户名（也可不用加）
+	命令输出
+		用户名
+		登录终端
+		登录时间(登录来源IP地址)
+	last
+	last命令默认读取/var/log/wtmp文件数据
+	vi /var/log/wtmp 查看的是二进制文件 避免人为修改
+	命令输出
+		用户名
+		登录终端
+		登录IP
+		登录时间
+		退出时间（在线时间）
+	lastlog
+	lastlog命令默认是读取/var/log/lastlog文件内容
+	命令输出
+		用户名
+		登录终端
+		登录IP
+		最后一次登录时间
+
+Shell基础 壳
+命令行解释器 
+Bourne Shell
+当前用C Shell
+Bourne sh ksh Bash psh zsh
+C csh tcsh
+echo $SHELL 	/bin/bash
+echo 输出命令
+echo 选项 输出内容
+	-e 支持反斜线控制的字符转换
+echo a #打印a
+echo "dd dd" #打印dd dd 有空格需要加双引号包含
+echo -e "dd \bdd" #打印dddd  \b退格键
+	\t 制表符 \a 警告音 \x十六进制 \n换行符
+	linux默认不支持中文 但远程工具支持
+echo -e "\e[1;31m 做一个测试 \e[0m" 输出颜色
+	30m=黑色 31m=红色 32m=绿色 33m=黄色
+	34m=蓝色 35m=洋红 36m=青色 37m=白色
+创建脚本 头必须有 #!/bin/bash
+执行脚本 
+	赋予执行权限，直接运行
+	chmod 755 hello.sh 	./hello.sh
+	通过Bash调用执行脚本 	bash hello.sh  不需要执行权限
+alias 查看系统中所有命令别名
+alias 别名= '原命令' 	设定命令别名 alias vi='vim' 重启失效
+vim功能比vi强大 支持颜色
+别名永久生效 vi ~/.bashrc #写入环境变量配置文件 source .bashrc 直接生效不需要重启
+unalias 别名 #删除别名
+命令生效顺序
+	一执行用相对路径或绝对路径执行的命令
+	二执行别名
+	三执行Bash的内部命令
+	四执行按照$PATH环境变量定义的目录查找顺序找到的第一个命令
+常用快捷键
+	ctrl+c 强制终止当前命令
+	ctrl+l 清屏
+	ctrl+a 光标移动到命令行首
+	ctrl+e 光标移动到命令行尾
+	ctrl+u 将光标所在位置删除到行首
+	ctrl+z 把命令放入后台
+	ctrl+r 在历史命令中搜索
+历史命令 上下键可选择 history 查看用过的所有命令
+	history 选项 历史命令保存文件
+	-c 清空历史命令
+	-w 把缓存中的历史命令写入命令保存文件~/.bash_history
+	历史命令默认保存1000条 可修改 vi /etc/profile
+	!n重复调用第n条历史命令
+	!!重复执行上一条命令
+	!字符串 重复执行最后一条以该字符开头的命令
+命令和文件名补全
+	table键命令和目录文件名补全
+输出/输入重定向
+标准输入输出
+键盘 	/dev/stdin	0	标准输入
+显示器	/dev/stdout	1	标准输出
+显示器	/dev/stderr	2	标准错误输出
+将输出重定向到文件中	ifconfig > test.log 把命令结果保存在文件中不显示在屏幕上
+>> 是叠加
+标准错误输出重定向 错误命令 2>文件/2>>文件 不能有空格
+正确和错误输出同时保存
+	命令 > 文件 2>&1	以覆盖的方式将正确命令和错误命令都保存在同一个文件中
+	命令 >> 文件 2>&1	以追加的方式将正确命令和错误命令都保存在同一个文件中
+	命令 &>文件 	以覆盖的方式将正确命令和错误命令都保存在同一个文件中
+	命令 &>>文件 	以追加的方式将正确命令和错误命令都保存在同一个文件中
+	命令>>文件1 2>>文件2	把正确输出追加到文件1中，错误输出追加到文件2中
+	ls &>/dev/null 相当于黑洞、垃圾站
+	cat xa >> access.log 2>>error.log
+输入重定向
+	wc 选项名 文件名
+	-c 统计字节数
+	-w 统计单词数
+	-l 统计行数
+	命令<文件 把文件作为命令的输入
+	命令<<标识符 指导碰到标识符停止输入，把标识符之间的内容作为命令的输入
+管道符
+	多命令顺序执行
+	命令1;命令2 多个命令顺序执行，命令之间没有逻辑关系
+	命令1&&命令2 逻辑与 只有命令1正确执行，命令2才会执行
+	命令1||命令2 逻辑或 当命令1执行不正确，命令2才会执行，当命令1正确执行，则命令2不会执行
+	ls && echo yes || echo no 判断脚本是否正确
+	管道符
+	命令1 | 命令2 #命令1的正确输出作为命令2的操作对象
+	more 分屏显示 ls -l /etc | more
+	netstat -an | grep ESTABLISHED | wc -l #统计网络连接中已经建立的连接的行数
+通配符
+? * [] [a-z] [0-9] 
+[^] 逻辑非，表示匹配不是中括号内的一个字符，[^0-9] 代表匹配一个不是数字的字符
+其它特殊字符
+'' #单引号中所有特殊符号都没有特殊含义	
+""	#双引号中特殊符号都没有特殊含义，但是"$","`","\"除外，拥有调用变量的值，引用命令，转义符的作用。
+`` #反引号里面是系统命令，在bash中会先执行，和$()作用一样，容易看错推荐用$()
+# 注释
+\ 使\之后的特殊符号失去特殊含义，变为普通字符 如\$
+a=123
+echo $a 	123
+echo '$a' 	$a
+echo "$a" 	123
+a=ls
+echo "$a" 	ls ls不会执行
+a=`ls`
+echo "$a" 	得到执行ls的结果 == echo $(ls)
+echo \$a 	$a #转移字符
+
+
+
+
+

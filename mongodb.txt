@@ -1,0 +1,21 @@
+2017-10-05
+下载msi安装，路径可选。
+在安装目录下的bin中执行mongod --dbpath F:\DataSource\MongoDB，这个是db目录
+安装mongodb服务
+	mongod.exe --bind_ip 127.0.0.1 --logpath "F:\DataSource\MongoDB\mongodb.log" --logappend --dbpath "F:\DataSource\MongoDB" --port 27017 --serviceName "MongoDB" --serviceDisplayName "MongoDB" --install
+--bind_ip	绑定服务IP，若绑定127.0.0.1，则只能本机访问，不指定默认本地所有IP
+--logpath	定MongoDB日志文件，注意是指定文件不是目录
+--logappend	使用追加的方式写日志
+--dbpath	指定数据库路径
+--port	指定服务端口号，默认端口27017
+--serviceName	指定服务名称
+--serviceDisplayName	指定服务名称，有多个mongodb服务时执行。
+--install	指定作为一个Windows服务安装。
+启动服务 在服务中  默认设定为自动 也可net start mongodb
+MOngoDB后台管理 shell
+	执行mongo.exe，默认链接到test文档(数据库)
+	use，切换操作的文档
+	然后db，查看当前操作的文档
+"show dbs" 命令可以显示所有数据的列表。
+ "db" 命令可以显示当前数据库对象或集合。
+ 运行"use"命令，可以连接到一个指定的数据库(文档)。

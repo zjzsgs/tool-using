@@ -36,3 +36,17 @@ wq退出:
 2017-09-20
 touch README.md 生成.md文件
 echo "content">readme.md 不区分大小写
+
+2017-09-29
+.gitignore使用
+创建.gitignore可能会报文件名不合法，可以输入.gitignore.
+.gitignore忽略文件
+.gitignore
+/foldName/
+*.class
+git删除和重命名远程仓库
+git remote rename origin master #将远程仓库在本地的简称origin改为master
+	远程仓库的分之也会变化 origin/branch - master/branch
+git remote rm origin #删除远程仓库
+
+

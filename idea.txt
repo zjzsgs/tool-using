@@ -38,3 +38,11 @@ idea分为ultimate和community，后者不能开发JavaWeb
 	设置maven，java compiler，设置jdk
 idea的project就是eclipse的工作空间 module就是eclipse的项目
 idea代码格式化 ctrl+alt+l
+
+2017-10-04
+win7 idea2017.2.3 搜狗输入法 卡
+1，删除或重命名jre64
+2，复制java安装目录下的jre改名为jre64
+3，复制jdk/lib下的tools.jar到jre64的lib
+4，重启idea
+（并没有用）
