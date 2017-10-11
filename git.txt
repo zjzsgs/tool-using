@@ -2,6 +2,7 @@ git安装 默认next git --version查看是否成功
 姓名和email只用于日志识别 推送到在线仓库需要又操作权限的账号登录
   git config --global user.name "zjz"
   git config --global user.email "zjzsgs@hotmail.com"
+  用户信息在系统当前用户目录(Administrator)可直接修改
 要进行git推送 必须配置push.default
   git config --global push.default simple
 可以根据项目路径单独设置姓名和email 去掉--global
