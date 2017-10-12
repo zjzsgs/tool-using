@@ -1,12 +1,12 @@
-����maven�������� 
+配置maven环境变量 
   M2_HOME C:\Program Files\apache-maven-3.5.0;
 	Path ;%M2_HOME%\bin;
-	cmd mvn --version ��֤�Ƿ�ɹ�
+	cmd mvn --version 验证是否成功
 
-��settings.xml��
-  ����mvn���زֿ�
+在settings.xml中
+  设置mvn本地仓库
   <localRepository>D:\DataSource\Repository</localRepository>
-	���ð����ƾ���
+	设置阿里云镜像
   <mirror>
       <id>alimaven</id>
       <name>aliyun maven</name>
@@ -14,5 +14,10 @@
       <mirrorOf>central</mirrorOf>        
   </mirror>
   
-�������ڵ�ǰ�û� ��.m2/settings.xml������
-��������ȫ���û� ��maven��װĿ¼������
+若是用于当前用户 在.m2/settings.xml中配置
+若是用于全局用户 在maven安装目录下配置
+
+2017-10-12
+idea自带的maven3.3.9在其安装目录的plugins下。
+其自动配置的setting和repository默认在用户目录/.m2/下，但repository会创建但setting不会，所以用的是全局配置（maven安装目录下的配置）。
+两种解决办法：1，修改idea配置的setting文件(override)指向maven的安装目录。2，复制maven下的setting文件到.m2下。
