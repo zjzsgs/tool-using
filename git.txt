@@ -2,7 +2,7 @@ git安装 默认next git --version查看是否成功
 姓名和email只用于日志识别 推送到在线仓库需要又操作权限的账号登录
   git config --global user.name "zjz"
   git config --global user.email "zjzsgs@hotmail.com"
-  用户信息在系统当前用户目录(Administrator)可直接修改
+  用户信息在系统当前用户目录(Administrator)可直接修改文件.gitconfig
 要进行git推送 必须配置push.default
   git config --global push.default simple
 可以根据项目路径单独设置姓名和email 去掉--global
@@ -50,4 +50,14 @@ git remote rename origin master #将远程仓库在本地的简称origin改为ma
 	远程仓库的分之也会变化 origin/branch - master/branch
 git remote rm origin #删除远程仓库
 
+2017-10-12
+git clone 仓库的指定目录，如仓库名repoA，里面的某个目录moduleB。
+命令如下：
+git init #初始化一个空的仓库
+git remote add origin gitUrl #添加远程仓库 其中gitUrl替换为需要克隆的仓库地址
+cd .git #进入到.git目录下 这里可以直接文件夹操作，若是在当前目录找不到.git文件说明查看隐藏文件没勾选，自查。
+vi config #进入编辑状态,i插入光标，添加sparsecheckout = true，esc+:+w+q+Enter保存并退出编辑。
+进入.git/info/，若没有则新建文件sparse-checkout，用文本编辑打开添加/moduleB保存。
+若git命令窗没有关闭，cd ..进入空仓库目录。或者在仓库目录直接打开git bash。
+git pull origin master #成功下载仓库repoA中的moduleB文件夹。
 
