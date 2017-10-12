@@ -1,11 +1,11 @@
-¿ì½İ¼ü
-alt+enter µ¯³öÌáÊ¾
-psvm main()º¯Êı
+å¿«æ·é”®
+alt+enter å¼¹å‡ºæç¤º
+psvm main()å‡½æ•°
 sout syso
 
-Ê¹ÓÃ±¨´í£º
-IntelliJ IDEA Ô´Öµ1.5ÒÑ¹ıÊ±£¬½«ÔÚÎ´À´ËùÓĞ°æ±¾ÖĞÉ¾³ı
-  1£¬ĞŞ¸ÄmavenµÄsettings.xml
+ä½¿ç”¨æŠ¥é”™ï¼š
+IntelliJ IDEA æºå€¼1.5å·²è¿‡æ—¶ï¼Œå°†åœ¨æœªæ¥æ‰€æœ‰ç‰ˆæœ¬ä¸­åˆ é™¤
+  1ï¼Œä¿®æ”¹mavençš„settings.xml
   <profile>
     <id>jdk-1.8</id>
     <activation>
@@ -18,31 +18,34 @@ IntelliJ IDEA Ô´Öµ1.5ÒÑ¹ıÊ±£¬½«ÔÚÎ´À´ËùÓĞ°æ±¾ÖĞÉ¾³ı
       <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
     </properties>
   </profile>
-  2£¬ÔÚpom.xmlÖĞÌí¼Ó
+  2ï¼Œåœ¨pom.xmlä¸­æ·»åŠ 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-  3£¬ĞŞ¸ÄÏîÄ¿Modules(ctrl+alt+shift+s)µÄLanguage LevelÎª8
-  4£¬ĞŞ¸Äjava compiler
+  3ï¼Œä¿®æ”¹é¡¹ç›®Modules(ctrl+alt+shift+s)çš„Language Levelä¸º8
+  4ï¼Œä¿®æ”¹java compiler
 
-IDEAÏÔÊ¾0%classes,0% lines covered ÔõÃ´È¡Ïû
-  Ctrl+Alt+F6 È¡Ïû¹´Ñ¡
-  Èô¿ì½İ¼ü³åÍ»(ÎÒµÄ¾ÍÓëbing´ÊµäºÍintelÍ¼ĞÎÊôĞÔ³åÍ»)
-  ÔÚ²Ëµ¥À¸Analyze¡ª¡ªShow Coverage Data
+IDEAæ˜¾ç¤º0%classes,0% lines covered æ€ä¹ˆå–æ¶ˆ
+  Ctrl+Alt+F6 å–æ¶ˆå‹¾é€‰
+  è‹¥å¿«æ·é”®å†²çª(æˆ‘çš„å°±ä¸bingè¯å…¸å’Œintelå›¾å½¢å±æ€§å†²çª)
+  åœ¨èœå•æ Analyzeâ€”â€”Show Coverage Data
 
 2017-09-24
-idea·ÖÎªultimateºÍcommunity£¬ºóÕß²»ÄÜ¿ª·¢JavaWeb
-¼¤»î License server http://idea.iteblog.com/key.php
-ÏÈÄ¬ÈÏÉèÖÃ£º
-	ÉèÖÃmaven£¬java compiler£¬ÉèÖÃjdk
-ideaµÄproject¾ÍÊÇeclipseµÄ¹¤×÷¿Õ¼ä module¾ÍÊÇeclipseµÄÏîÄ¿
-idea´úÂë¸ñÊ½»¯ ctrl+alt+l
+ideaåˆ†ä¸ºultimateå’Œcommunityï¼Œåè€…ä¸èƒ½å¼€å‘JavaWeb
+æ¿€æ´» License server http://idea.iteblog.com/key.php
+å…ˆé»˜è®¤è®¾ç½®ï¼š
+	è®¾ç½®mavenï¼Œjava compilerï¼Œè®¾ç½®jdk
+ideaçš„projectå°±æ˜¯eclipseçš„å·¥ä½œç©ºé—´ moduleå°±æ˜¯eclipseçš„é¡¹ç›®
+ideaä»£ç æ ¼å¼åŒ– ctrl+alt+l
 
 2017-10-04
-win7 idea2017.2.3 ËÑ¹·ÊäÈë·¨ ¿¨
-1£¬É¾³ı»òÖØÃüÃûjre64
-2£¬¸´ÖÆjava°²×°Ä¿Â¼ÏÂµÄjre¸ÄÃûÎªjre64
-3£¬¸´ÖÆjdk/libÏÂµÄtools.jarµ½jre64µÄlib
-4£¬ÖØÆôidea
-£¨²¢Ã»ÓĞÓÃ£©
+win7 idea2017.2.3 æœç‹—è¾“å…¥æ³• å¡
+1ï¼Œåˆ é™¤æˆ–é‡å‘½åjre64
+2ï¼Œå¤åˆ¶javaå®‰è£…ç›®å½•ä¸‹çš„jreæ”¹åä¸ºjre64
+3ï¼Œå¤åˆ¶jdk/libä¸‹çš„tools.jaråˆ°jre64çš„lib
+4ï¼Œé‡å¯idea
+ï¼ˆå¹¶æ²¡æœ‰ç”¨ï¼‰
+
+2017-10-12
+ctrl+alt+B è¿›å…¥ä¸‹ä¸€å±‚
