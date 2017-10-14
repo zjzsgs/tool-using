@@ -61,3 +61,10 @@ vi config #进入编辑状态,i插入光标，添加sparsecheckout = true，esc+
 若git命令窗没有关闭，cd ..进入空仓库目录。或者在仓库目录直接打开git bash。
 git pull origin master #成功下载仓库repoA中的moduleB文件夹。
 
+2017-10-14
+git clone
+git branch -a
+git checkout origin/
+切换到分支
+也可以直接克隆指定分支git clone -b branchName gitUrl
+
