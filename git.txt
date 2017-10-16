@@ -68,3 +68,7 @@ git checkout origin/
 切换到分支
 也可以直接克隆指定分支git clone -b branchName gitUrl
 
+2017-10-16
+git bash上使用git status显示的中文变成\232
+先git config --global core.quotepath false
+右键-options-text-设置utf-8
