@@ -1,5 +1,5 @@
-×¢²áÂë
-¡ª¨C BEGIN LICENSE ¡ª¨C
+æ³¨å†Œç 
+â€”â€“ BEGIN LICENSE â€”â€“
 Michael Barnes
 Single User License
 EA7E-821385
@@ -11,9 +11,12 @@ B085E65E 2F5F5360 8489D422 FB8FC1AA
 FCCC7561 8A4A1741 68FA4223 ADCEDE07
 200C25BE DBBC4855 C4CFB774 C5EC138C
 0FEC1CEF D9DCECEC D3A5DAD1 01316C36
-¡ª¡ª END LICENSE ¡ª¡ª
+â€”â€” END LICENSE â€”â€”
 
-ÉèÖÃ×ÖÌå
-  Preference-¡·Settings-¡·"font_size": 12,//¶ººÅĞèÒª
-ÉèÖÃ²»ÌáÊ¾Éı¼¶
-  Preference-¡·Settings-¡·"update_check":false,
+è®¾ç½®å­—ä½“
+  Preference-ã€‹Settings-ã€‹"font_size": 12,//é€—å·éœ€è¦
+è®¾ç½®ä¸æç¤ºå‡çº§
+  Preference-ã€‹Settings-ã€‹"update_check":false,
+
+2017-10-16
+sublimeå…¨å±å¿«æ·é”® shift+f11
