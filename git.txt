@@ -76,3 +76,5 @@ git bash上使用git status显示的中文变成\232
 push会提示Permission denied (publickey).需要添加ssh公钥
 ssh-keygen -t rsa会生成公钥(id_rsa.pub)和私钥(id_rsa)在用户目录下的.ssh目录下
 复制公钥里的内容到github的SSH_keys中就可以push了
+ssh -T git@github.com 测试
+ssh-keygen -t rsa -C "zjzsgs"
